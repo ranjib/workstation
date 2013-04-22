@@ -1,6 +1,7 @@
 
 %w{htop vim git tig gource build-essential openssl libssl-dev libxml2 libxml2-dev
-   libreadline-dev libxslt1-dev screen tmux  flashplugin-installer gsfonts-x11}.each do |pkg|
+   libreadline-dev libxslt1-dev screen tmux  flashplugin-installer gsfonts-x11 
+   linux-headers-3.5.0-27-generic linux-headers-3.5.0-27}.each do |pkg|
   package pkg
 end
 
