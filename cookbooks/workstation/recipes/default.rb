@@ -38,7 +38,6 @@ directory "#{home}/.dir_colors" do
 end
 
 template '/etc/sudoers' do
- mode '0440'
+  mode '0440'
 end
-
 
