@@ -1,0 +1,35 @@
+[user]
+   name = Ranjib Dey
+   email = ranjib@pagerduty.com
+[github]
+   user = ranjib
+[alias]
+   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white) %an, %ar%Creset'
+   ll = log --stat --abbrev-commit
+   stat = status
+   co = checkout
+   br = branch
+   st = status
+   mt = mergetool
+   mylog = log --stat
+   slog = log --pretty=oneline --abbrev-commit
+   # all = submodule foreach git
+[color]
+   ui = auto # covers diff = true, status = auto, branch = auto
+   interactive = auto
+[color "branch"]
+   current = yellow reverse
+   local = yellow 
+   remote = green
+[color "diff"]
+   meta = yellow
+   frag = cyan
+   ld = red
+   new = green
+[color "status"]
+   added = yellow
+   changed = green
+   untracked = cyan
+
+[core]
+   excludesfile = /home/ranjib/.gitignore

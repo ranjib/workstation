@@ -1,0 +1,5 @@
+.bundle
+.chef
+tmp
+*.swo
+*.swp
