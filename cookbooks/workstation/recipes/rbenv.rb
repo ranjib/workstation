@@ -35,17 +35,15 @@ bash "ruby_2.0.0" do
   creates "#{home}/.rbenv/versions/2.0.0-p0/bin/ruby"
 end
 
+gem_bin = "#{home}/.rbenv/versions/1.9.3-p194/bin/gem"
+
 bash "bundler" do
   code <<-EOF
-echo Bundler
-EOF
+    #{gem_bin} install bundler --no-ri --no-rdoc
+  EOF
   user u
-end
-
-bash "rubygems" do
-  code <<-EOF
-echo RubyGems
-EOF
-  user u
+  cwd home
+  environment('RBENV_ROOT'=>"#{home}/.rbenv/versions/1.9.3-p194")
+  not_if "#{gem_bin} list| grep bundler"
 end
 
