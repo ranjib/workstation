@@ -5,6 +5,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/vagrant.deb" do
   source node['vagrant']['url']
   checksum node['vagrant']['checksum']
   notifies :install, "dpkg_package[vagrant]", :immediately
+  not_if {::File.exists?("#{Chef::Config[:file_cache_path]}/vagrant.deb")}
 end
 
 dpkg_package "vagrant" do

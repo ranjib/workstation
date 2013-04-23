@@ -36,14 +36,19 @@ bash "ruby_2.0.0" do
 end
 
 gem_bin = "#{home}/.rbenv/versions/1.9.3-p194/bin/gem"
-
-bash "bundler" do
-  code <<-EOF
-    #{gem_bin} install bundler --no-ri --no-rdoc
-  EOF
-  user u
-  cwd home
-  environment('RBENV_ROOT'=>"#{home}/.rbenv/versions/1.9.3-p194")
-  not_if "#{gem_bin} list| grep bundler"
+%w{irbtools pry bundler chef}.each do |g|
+  bash g do
+    code "#{gem_bin} install #{g} --no-ri --no-rdoc"
+    user u
+    cwd home
+    environment('RBENV_ROOT'=>"#{home}/.rbenv/versions/1.9.3-p194")
+    not_if "#{gem_bin} list|grep #{g}"
+  end
 end
 
+cookbook_file "#{home}/.irbrc" do
+  source 'irbrc'
+  owner u
+  group u
+  mode '0644'
+end
