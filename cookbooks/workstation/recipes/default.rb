@@ -1,7 +1,7 @@
 
 %w{htop vim git tig gource build-essential openssl libssl-dev libxml2 libxml2-dev
    libreadline-dev libxslt1-dev screen tmux  flashplugin-installer gsfonts-x11 
-   linux-headers-3.5.0-27-generic linux-headers-3.5.0-27}.each do |pkg|
+   linux-headers-3.5.0-27-generic linux-headers-3.5.0-27 lxc lxctl}.each do |pkg|
   package pkg
 end
 
@@ -41,4 +41,5 @@ end
 template '/etc/sudoers' do
   mode '0440'
 end
+
 
