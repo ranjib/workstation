@@ -12,7 +12,7 @@ directory "#{home}/.vim/tmp" do
 end
 
 
-coobook_file "#{home}/.vimrc" do
+cookbook_file "#{home}/.vimrc" do
   owner u
   group u
   mode "0600"
@@ -21,6 +21,12 @@ end
 
 
 directory "#{home}/.vim/plugins" do
+  owner u
+  group u
+end
+
+remote_file "#{home}/.vim/plugins/ack.vim" do
+  source "https://raw.github.com/mileszs/ack.vim/master/plugin/ack.vim"
   owner u
   group u
 end
