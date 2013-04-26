@@ -29,8 +29,15 @@ remote_file "#{home}/.vim/plugins/ack.vim" do
   source "https://raw.github.com/mileszs/ack.vim/master/plugin/ack.vim"
   owner u
   group u
+  mode 0644
 end
 
+package "ack-grep"
 
-
+cookbook_file "#{home}/.rspec" do
+  source "rspec"
+  owner u
+  group u
+  mode 0644
+end
 
