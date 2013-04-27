@@ -20,12 +20,12 @@ cookbook_file "#{home}/.vimrc" do
 end
 
 
-directory "#{home}/.vim/plugins" do
+directory "#{home}/.vim/plugin" do
   owner u
   group u
 end
 
-remote_file "#{home}/.vim/plugins/ack.vim" do
+remote_file "#{home}/.vim/plugin/ack.vim" do
   source "https://raw.github.com/mileszs/ack.vim/master/plugin/ack.vim"
   owner u
   group u
