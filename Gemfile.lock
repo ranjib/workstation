@@ -2,9 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+    arr-pm (0.0.10)
+      cabin (> 0)
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
+    backports (3.6.4)
     berkshelf (3.2.4)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.2)
@@ -35,6 +38,7 @@ GEM
     buff-shell_out (0.2.0)
       buff-ruby_engine (~> 0.1.0)
     builder (3.2.2)
+    cabin (0.7.1)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     celluloid-io (0.16.2)
@@ -76,6 +80,9 @@ GEM
       chef (>= 11.14)
       fauxhai (~> 2.0)
       rspec (~> 3.0)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
+    clamp (0.6.5)
     cleanroom (1.0.0)
     coderay (1.1.0)
     dep-selector-libgecode (1.0.2)
@@ -100,6 +107,14 @@ GEM
       rufus-lru (~> 1.0)
       treetop (~> 1.4)
       yajl-ruby (~> 1.1)
+    fpm (1.3.3)
+      arr-pm (~> 0.0.9)
+      backports (>= 2.6.2)
+      cabin (>= 0.6.0)
+      childprocess
+      clamp (~> 0.6)
+      ffi
+      json (>= 1.7.7)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     hashie (2.1.2)
@@ -257,4 +272,5 @@ DEPENDENCIES
   chef-lxc
   chefspec
   foodcritic
+  fpm
   rubocop
