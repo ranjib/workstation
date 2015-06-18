@@ -1,3 +1,2 @@
-configs/*.pid
-configs/*.out
-configs/*.deb
+etc
+workstation-cookbooks*

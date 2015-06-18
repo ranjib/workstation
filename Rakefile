@@ -37,6 +37,6 @@ end
 desc 'Create debian package of the cookbooks'
 task package: :vendor do
   command = 'bundle exec fpm -s dir -t deb --prefix=/opt'
-  command << " -v #{Workstation::VERSION} -n #{package_name} #{vendor_path}"
+  command << " -v #{Workstation::VERSION} -n #{package_name} #{vendor_path} etc"
   shell_out!(command)
 end

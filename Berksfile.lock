@@ -1,0 +1,41 @@
+DEPENDENCIES
+  go_cd
+    git: git://github.com/goatos/go_cd.git
+    revision: 6d3b4a518d988e1a152cb2c6cbaf16208aed3c5f
+  goatos
+    git: git://github.com/goatos/goatos.git
+    revision: 6f97951cafcd4957abbfe63729f86e20520630c1
+  workstation
+    path: site-cookbooks/workstation
+
+GRAPH
+  7-zip (1.0.2)
+    windows (>= 1.2.2)
+  apt (2.7.0)
+  build-essential (2.2.3)
+  chef-sugar (3.1.0)
+  chef_handler (1.1.9)
+  container (0.3.0)
+  go_cd (0.2.0)
+    apt (>= 0.0.0)
+  goatos (0.1.0)
+    container (>= 0.0.0)
+    go_cd (>= 0.0.0)
+    omnibus (>= 0.0.0)
+    xml_file (>= 0.0.0)
+  homebrew (1.12.0)
+    build-essential (>= 2.1.2)
+  omnibus (2.6.7)
+    7-zip (~> 1.0)
+    build-essential (~> 2.0)
+    chef-sugar (~> 3.0)
+    homebrew (~> 1.9)
+    windows (~> 1.30)
+    wix (~> 1.1)
+  windows (1.37.0)
+    chef_handler (>= 0.0.0)
+  wix (1.1.0)
+    windows (>= 1.2.2)
+  workstation (0.0.1)
+    goatos (>= 0.0.0)
+  xml_file (0.1.0)

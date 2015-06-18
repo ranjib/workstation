@@ -1,16 +1,29 @@
-
-%w{htop vim git tig gource build-essential openssl libssl-dev libxml2 libxml2-dev
-   libreadline-dev libxslt1-dev screen tmux  flashplugin-installer gsfonts-x11 
-   linux-headers-3.5.0-27-generic linux-headers-3.5.0-27 lxc lxctl btrfs-tools}.each do |pkg|
-  package pkg
+package 'deps' do
+  package_name %w(
+    htop
+    vim
+    git
+    tig
+    gource
+    build-essential
+    openssl
+    libssl-dev
+    libxml2
+    libxml2-dev
+    libreadline-dev
+    libxslt1-dev
+    screen
+    tmux
+    flashplugin-installer
+    gsfonts-x11 
+    linux-headers
+    lxc
+    btrfs-tools
+  )
 end
 
 u = node.workstation.user
 home = node.workstation.home
-
-Chef::Log.info("Setting up workstation for user '#{u}'")
-
-user u
 
 cookbook_file "#{home}/.gitconfig" do
   source 'gitconfig'
@@ -41,5 +54,3 @@ end
 template '/etc/sudoers' do
   mode '0440'
 end
-
-
