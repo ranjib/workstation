@@ -8,7 +8,9 @@ require 'berkshelf'
 require 'berkshelf/berksfile'
 
 extend Workstation::ShellOut
+
 package_name = 'workstation-cookbooks'
+vendor_path = File.expand_path('../workstation-cookbooks', __FILE__)
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = %w()
@@ -27,14 +29,14 @@ end
 
 desc 'Vendorize all cookbooks using berks'
 task 'vendor' do
-  vendor_path = File.expand_path('../workstation-cookbooks', __FILE__)
   FileUtils.rm_rf(vendor_path)
   berksfile = Berkshelf::Berksfile.from_file('Berksfile')
   berksfile.vendor(vendor_path)
 end
 
-task 'package' do
-  command = 'bundle exec fpm -s dir -t deb --prefix=/opt/'
-  command << " -n -v #{Workstation::VERSION} #{package_name}"
+desc 'Create debian package of the cookbooks'
+task package: :vendor do
+  command = 'bundle exec fpm -s dir -t deb --prefix=/opt'
+  command << " -v #{Workstation::VERSION} -n #{package_name} #{vendor_path}"
   shell_out!(command)
 end
