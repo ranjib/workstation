@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm -rf /opt/workstation-cookbooks
+rm -rf /opt/workstation
