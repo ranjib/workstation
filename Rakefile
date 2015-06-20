@@ -28,7 +28,7 @@ end
 
 desc 'Vendorize all cookbooks using berks'
 task 'vendor' do
-  FileUtils.rm_rf(package_name)
+  FileUtils.rm_rf(package_name) if Dir.exist?(package_name)
   berksfile = Berkshelf::Berksfile.from_file('Berksfile')
   berksfile.vendor(package_name)
 end
@@ -37,7 +37,6 @@ desc 'Create debian package of the cookbooks'
 task package: :vendor do
   package = "#{package_name}_#{Workstation::VERSION}_amd64.deb"
   File.unlink(package) if File.exist?(package)
-  FileUtils.rm_rf(package_name) if Dir.exist?(package_name)
   command = 'bundle exec fpm -s dir -t deb --prefix=/opt'
   command << " --before-install scripts/before_install.sh"
   command << " --after-install scripts/after_install.sh"
