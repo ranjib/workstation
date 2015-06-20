@@ -1,9 +1,2 @@
-
-root = File.absolute_path(File.dirname(__FILE__))
-
-file_cache_path root
-
-cookbook_path [
-File.join(root, "..", "cookbooks")
-]
-
+file_cache_path '/var/cache/chef/cookbooks'
+cookbook_path '/opt/workstation-cookbooks'
