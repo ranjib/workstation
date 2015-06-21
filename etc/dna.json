@@ -1,0 +1,10 @@
+{
+ "run_list" : [
+   "recipe[workstation]",
+   "recipe[workstation::rbenv]",
+   "recipe[workstation::workspace]",
+   "recipe[workstation::softwares]",
+   "recipe[workstation::vim]"
+   "recipe[workstation::goatos]"
+  ]
+}
