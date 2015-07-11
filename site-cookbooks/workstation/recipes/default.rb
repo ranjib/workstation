@@ -16,7 +16,6 @@ package 'deps' do
     tmux
     flashplugin-installer
     gsfonts-x11 
-    linux-headers
     lxc
     btrfs-tools
   )

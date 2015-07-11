@@ -17,33 +17,13 @@ git "#{home}/.rbenv/plugins/ruby-build" do
   user u
 end
 
-bash "ruby_1.9.3" do
+bash "ruby_2.2.2" do
   code <<-EOF
-    .rbenv/bin/rbenv install 1.9.3-p194
+    .rbenv/bin/rbenv install 2.2.2
   EOF
   cwd home
   user u
-  creates "#{home}/.rbenv/versions/1.9.3-p194/bin/ruby"
-end
-
-bash "ruby_2.0.0" do
-  code <<-EOF
-    .rbenv/bin/rbenv install 2.0.0-p0
-  EOF
-  cwd home
-  user u
-  creates "#{home}/.rbenv/versions/2.0.0-p0/bin/ruby"
-end
-
-gem_bin = "#{home}/.rbenv/versions/1.9.3-p194/bin/gem"
-%w{irbtools pry bundler chef}.each do |g|
-  bash g do
-    code "#{gem_bin} install #{g} --no-ri --no-rdoc"
-    user u
-    cwd home
-    environment('RBENV_ROOT'=>"#{home}/.rbenv/versions/1.9.3-p194")
-    not_if "#{gem_bin} list|grep #{g}"
-  end
+  creates "#{home}/.rbenv/versions/2.2.2/bin/ruby"
 end
 
 cookbook_file "#{home}/.irbrc" do
