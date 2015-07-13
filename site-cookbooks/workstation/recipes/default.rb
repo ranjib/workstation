@@ -53,3 +53,10 @@ end
 template '/etc/sudoers' do
   mode '0440'
 end
+
+cookbook_file "#{home}/.rspec" do
+  source "rspec"
+  owner u
+  group u
+  mode 0644
+end

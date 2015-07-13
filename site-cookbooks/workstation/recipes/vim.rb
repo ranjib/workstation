@@ -24,16 +24,17 @@ cookbook_file "#{home}/.vimrc" do
   source "vimrc" 
 end
 
-remote_file "#{home}/.vim/plugin/ack.vim" do
-  source "https://raw.github.com/mileszs/ack.vim/master/plugin/ack.vim"
-  owner u
+git "#{home}/.vim/bundle/ack.vim" do
+  repository 'https://github.com/mileszs/ack.vim.git'
+  action :sync
+  user u
   group u
   mode 0644
 end
 
-cookbook_file "#{home}/.rspec" do
-  source "rspec"
-  owner u
+git "#{home}/.vim/bundle/vim-go" do
+  repository 'https://github.com/fatih/vim-go.git'
+  action :sync
+  user  u
   group u
-  mode 0644
 end
